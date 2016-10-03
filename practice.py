@@ -177,23 +177,10 @@ print sign_and_parity(59)
 def full_title(name, job_title="Engineer"):
     return job_title + " " + name
 
-def write_letter(full_title, sender_name):
-    title = full_title(name, job_title)
-    print "Dear {}, I think you are amazing! Sincerely, {}.".format(
-        title, sender_name)
-
-"""
-
-    >>> full_title("Balloonicorn")
-    'Engineer Balloonicorn'
-
-    >>> full_title("Jane Hacks", "Hacker")
-    'Hacker Jane Hacks'
-
-    >>> write_letter("Jane Hacks", "Hacker", "Balloonicorn")
-    Dear Hacker Jane Hacks, I think you are amazing! Sincerely, Balloonicorn
-
-    """
+def write_letter(name, job_title, sender_name):
+    print "Dear {}, I think you are amazing! Sincerely, {}".format(
+        full_title(name, job_title), sender_name)
+    
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.
 

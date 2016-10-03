@@ -14,6 +14,23 @@
 
 #    If the user does not provide a tax rate it should default to 5% 
 
+def calculate_cost(state_abbreviation, cost_amount, tax=0.05):
+    """Calculates costs of items with tax
+
+    Input needed: state abbreviation for location purchased; 
+    tax rate is state-dependent. If "CA", tax rate is 7%.
+    If not "CA", tax rate defaults to 5% (unless otherwise specified).
+    The cost of the amount also needed.
+    Total cost returned (cost + [cost x tax])
+    """
+    if state_abbreviation == "CA":
+        return cost_amount + (cost_amount * 0.07)
+    else:
+        return cost_amount + (cost_amount * tax)
+
+print calculate_cost("CA", 50)
+print calculate_cost("TX", 150, 0.03)
+
 #####################################################################
 # PART TWO
 
@@ -21,23 +38,75 @@
 #        and returns a boolean if the fruit is a "strawberry", "cherry", or 
 #        "blackberry".
 
+def is_berry(fruit):
+    """Determine whether fruit string is "strawberry", "cherry", or "blackberry"
+
+    Input: fruit name as a string
+    Output: if fruit name is not "strawberry", "cherry", or "blackberry", then
+    return False. Else, return True.
+    """
+
+    if fruit == "strawberry" or fruit == "cherry" or fruit == "blackberry":
+        return True
+    else:
+        return False
+
+print is_berry("apple")
+print is_berry("cherry")
+
 #    (b) Write another function, shipping_cost(), which calculates shipping cost
 #        by taking a fruit name as a string, calling the `is_berry()` function 
 #        within the `shipping_cost()` function and returns `0` if ``is_berry()
 #        == True``, and `5` if ``is_berry() == False``.
 
+def shipping_cost(fruit):
+    if is_berry(fruit) == True:
+        return 0
+    if is_berry(fruit) == False:
+        return 5
+
+print shipping_cost(is_berry("apple"))
+print shipping_cost("cherry")
+
 # 2. (a) Write a function, `is_hometown()`, which takes a town name as a string
 #        and evaluates to `True` if it is your hometown, and `False` otherwise.
-#
+
+def is_hometown(town_name):
+    if town_name == "San Jose":
+        return True
+    else:
+        return False
+
+print is_hometown("New York")
+print is_hometown("San Jose")
+
 #    (b) Write a function, `full_name()`, which takes a first and last name as
 #        arguments as strings and returns the concatenation of the two names in
 #        one string.
+
+def full_name(first_name, last_name):
+    return first_name + " " + last_name
+
+print full_name("Chung", "Nguyen")
+print full_name("Balloonicorn", "Jones")
 #
 #    (c) Write a function, `hometown_greeting()`, which takes a home town, a
 #        first name, and a last name as strings as arguments, calls both
 #        `is_hometown()` and `full_name()` and prints "Hi, 'full name here',
 #        we're from the same place!", or "Hi 'full name here', where are you 
 #        from?" depending on what `is_hometown()` evaluates to.
+
+def hometown_greeting(town_name, first_name, last_name):
+    if is_hometown(town_name) == True:
+        print "Hi, {}, we're from the same place!".format(
+                full_name(first_name, last_name))
+    else:
+        print "Hi {}, where are you from?".format(full_name(first_name,
+            last_name))
+
+print hometown_greeting("San Jose", "Barbara", "Walters")
+print hometown_greeting("San Diego", "Barbra", "Streissand")
+
 
 #####################################################################
 
@@ -46,6 +115,8 @@
 # 1. Write a function ``increment()`` with a nested inner function, ``add()`` 
 #    inside of it. The outer function should take ``x``, an integer which
 #    defaults to 1. The inner function should take ``y`` and add ``x`` and ``y`` together.
+
+
 
 # 2. Call the function ``increment()`` with x = 5. Assign what is returned to a variable name, addfive. Call 
 #    addfive with y = 5. Call again with y = 20.
