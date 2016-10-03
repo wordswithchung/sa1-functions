@@ -68,24 +68,28 @@ PART TWO:
 #    prints "Hello World".
 
 def hello_world():
+    """Print 'Hello World'"""
     print "Hello World"
 
 # 2. Write a function called 'say_hi' that takes a name as a string and
 #    prints "Hi" followed by the name.
 
 def say_hi(name):
+    """print "Hi" and name"""
     print "Hi " + name
 
 # 3. Write a function called 'print_product' that takes two integers and multiplies
 #    them together. Print the result.
 
 def print_product(x, y):
+    """Take two integers, multiply them, print the result."""
     print x * y
 
 # 4. Write a function called 'repeat_string' that takes a string and an integer and
 #    prints the string that many times
 
 def repeat_string(word, n):
+    """Take a string and an integer and print the string that many times."""
     print word * n
 
 # 5. Write a function called 'print_sign' that takes an integer and prints "Higher
@@ -93,6 +97,8 @@ def repeat_string(word, n):
 #    than zero. If the integer is 0 print "Zero".
 
 def print_sign(n):
+    """Print whether integer provided is equal to, higher or lower than zero.
+    """
     if n > 0:
         print "Higher than 0"
     elif n < 0:
@@ -105,6 +111,7 @@ def print_sign(n):
 #    is evenly divisible by 3.
 
 def is_divisible_by_three(n):
+    """Return boolean value whether integer is evenly divisible by 3."""
     if n % 3 == 0:
         return True
     else:
@@ -114,6 +121,7 @@ def is_divisible_by_three(n):
 #    returns the number of spaces.
 
 def num_spaces(sentence):
+    """Return the number of spaces within a string."""
     spaces = 0
     for letter in sentence:
         if letter == " ":
@@ -128,6 +136,7 @@ def num_spaces(sentence):
 #    default to 15%.
 
 def total_meal_price(meal, tip=0.15):
+    """Calculate total cost of meal; if tip not specified, default to 15%"""
     return meal + (meal * tip)
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an argument and
@@ -141,6 +150,8 @@ def total_meal_price(meal, tip=0.15):
 #    Print sign and parity.
 
 def sign_and_parity(n):
+    """Return whether integer is even or odd; positive or negative.
+    """
     info = []
 
     if n % 2 == 0:
@@ -175,12 +186,14 @@ print sign_and_parity(59)
 #    greeting.
 
 def full_title(name, job_title="Engineer"):
+    """Format the full title of someone with their job title and full name"""
     return job_title + " " + name
 
 def write_letter(name, job_title, sender_name):
+    """Print congratulatory message referencing full_title function."""
     print "Dear {}, I think you are amazing! Sincerely, {}".format(
         full_title(name, job_title), sender_name)
-    
+
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.
 

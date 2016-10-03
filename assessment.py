@@ -116,12 +116,42 @@ print hometown_greeting("San Diego", "Barbra", "Streissand")
 #    inside of it. The outer function should take ``x``, an integer which
 #    defaults to 1. The inner function should take ``y`` and add ``x`` and ``y`` together.
 
+def increment(x=1):
+    """Outer and inner function; inner function returns x + y
+
+    Input: integer (x), which defaults to 1 if not provided
+    Output: presumably sum of x and y
+    NOTE: The instructions for this particular task is very confusing, as
+    a value for y is necessary to call the function.
+    """
+    def add(y):
+        return x + y
+
+    return add(5)
+    
+print increment(4)
+print increment()
 
 
 # 2. Call the function ``increment()`` with x = 5. Assign what is returned to a variable name, addfive. Call 
 #    addfive with y = 5. Call again with y = 20.
 
+addfive = increment(5)
+
+
 # 3. Make a function that takes in a number and a list of numbers. It should append
 #    the number to the list of numbers and return the list.
+
+def append_number(number, list_of_numbers):
+    """Take number provided and append the number to list of numbers.
+
+    Input: number, list of numbers
+    Output: list of numbers with number appended
+    """
+    list_of_numbers.append(number)
+    return list_of_numbers
+
+print append_number(1, [3, 2903, 183])
+
 
 #####################################################################
