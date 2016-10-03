@@ -60,6 +60,8 @@ print is_berry("cherry")
 #        == True``, and `5` if ``is_berry() == False``.
 
 def shipping_cost(fruit):
+    """Determine shipping cost based on truthiness of is_berry(fruit)
+    """
     if is_berry(fruit) == True:
         return 0
     if is_berry(fruit) == False:
@@ -72,6 +74,7 @@ print shipping_cost("cherry")
 #        and evaluates to `True` if it is your hometown, and `False` otherwise.
 
 def is_hometown(town_name):
+    """Determine truthiness of hometown (if it's San Jose)."""
     if town_name == "San Jose":
         return True
     else:
@@ -85,6 +88,7 @@ print is_hometown("San Jose")
 #        one string.
 
 def full_name(first_name, last_name):
+    """Return concatenation of strings"""
     return first_name + " " + last_name
 
 print full_name("Chung", "Nguyen")
@@ -97,6 +101,7 @@ print full_name("Balloonicorn", "Jones")
 #        from?" depending on what `is_hometown()` evaluates to.
 
 def hometown_greeting(town_name, first_name, last_name):
+    """Provide greeting based on if someone's also from San Jose."""
     if is_hometown(town_name) == True:
         print "Hi, {}, we're from the same place!".format(
                 full_name(first_name, last_name))
@@ -117,7 +122,7 @@ print hometown_greeting("San Diego", "Barbra", "Streissand")
 #    defaults to 1. The inner function should take ``y`` and add ``x`` and ``y`` together.
 
 def increment(x=1):
-    """Outer and inner function; inner function returns x + y
+    """Outer and inner functions; inner function returns x + y
 
     Input: integer (x), which defaults to 1 if not provided
     Output: presumably sum of x and y
@@ -137,17 +142,25 @@ print increment()
 #    addfive with y = 5. Call again with y = 20.
 
 addfive = increment(5)
+"""Honestly, I do not understand what this particular question is asking for, 
+but I'm going to go ahead and provide my best guess below!
+"""
 
+def increment(x=1):
+    def add(y):
+        return x + y
+    return add(5)
+
+def increment(x=1):
+    def add(y):
+        return x + y
+    return add(20)
 
 # 3. Make a function that takes in a number and a list of numbers. It should append
 #    the number to the list of numbers and return the list.
 
 def append_number(number, list_of_numbers):
-    """Take number provided and append the number to list of numbers.
-
-    Input: number, list of numbers
-    Output: list of numbers with number appended
-    """
+    """Take number provided and append the number to list of numbers."""
     list_of_numbers.append(number)
     return list_of_numbers
 
